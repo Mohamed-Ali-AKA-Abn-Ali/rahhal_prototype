@@ -22,11 +22,12 @@ class HomeScreen extends StatelessWidget {
            child:Row(
              mainAxisAlignment: MainAxisAlignment.center,
              children: [
-               //Image.asset('name'),
+               Image.asset('assets/images/horas.png',width: 40,height: 40,),
                Text('R A H H A L',
                style: TextStyle(
                    fontSize: 40,
                  fontFamily:'raleway',
+                 color: Colors.white,
 
                ),),
              ],
