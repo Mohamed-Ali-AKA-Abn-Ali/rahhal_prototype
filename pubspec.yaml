@@ -40,6 +40,9 @@ dependencies:
   thebrioflashynavbar: ^0.0.1
 #  tflite: ^1.1.2
   get: ^4.6.6
+  tflite_v2: ^1.0.0
+
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
