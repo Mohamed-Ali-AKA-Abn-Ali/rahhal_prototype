@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:ra7al/screens/pyramids3d_model.dart';
+import 'package:ra7al/screens/vid_pyramids.dart';
 
 class Details extends StatelessWidget {
   const Details({super.key});
@@ -11,11 +13,10 @@ class Details extends StatelessWidget {
         slivers: [
           SliverAppBar(
 
-            backgroundColor: Colors.transparent,
-
+            backgroundColor: Color.fromRGBO(40, 40, 40, 100),
             elevation: 0,
             floating: false,
-            pinned: false,
+            pinned: true,
             expandedHeight: 300,
             shape: const RoundedRectangleBorder(
               borderRadius: BorderRadius.only(
@@ -57,41 +58,61 @@ class Details extends StatelessWidget {
                 ),),
             ),
           ),
-          SliverToBoxAdapter(
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 5.0),
-              child: Container(
-                height: 40,
-                decoration: BoxDecoration(
 
-                  color: Colors.orangeAccent,
-                  borderRadius: BorderRadius.circular(20)
-                ),
-                child: Center(child: Text('Use Rahhal',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 20
-                ),)),
-
-              ),
-              ),
-          ),
           SliverToBoxAdapter(
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 5.0),
-              child: Container(
-                height: 40,
-                decoration: BoxDecoration(
+            child: GestureDetector(
+              onTap: (){
+                Navigator.push(context as BuildContext,MaterialPageRoute(
+                  builder: (BuildContext context){
+                    return VidPyramids();
+                  },
+                ),);
+              },
+
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 5.0),
+                child: Container(
+                  height: 40,
+                  decoration: BoxDecoration(
 
                     color: Colors.orangeAccent,
                     borderRadius: BorderRadius.circular(20)
-                ),
-                child: Center(child: Text('Show 3D Model',
+                  ),
+                  child: Center(child: Text('Use Rahhal',
                   style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 20
+                    color: Colors.white,
+                    fontSize: 20
                   ),)),
 
+                ),
+                ),
+            ),
+          ),
+          SliverToBoxAdapter(
+            child: GestureDetector(
+              onTap: (){
+                Navigator.push(context as BuildContext,MaterialPageRoute(
+                  builder: (BuildContext context){
+                    return PyramidsModel();
+                  },
+                ),);
+              },
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 5.0),
+                child: Container(
+                  height: 40,
+                  decoration: BoxDecoration(
+
+                      color: Colors.orangeAccent,
+                      borderRadius: BorderRadius.circular(20)
+                  ),
+                  child: Center(child: Text('Show 3D Model',
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 20
+                    ),)),
+
+                ),
               ),
             ),
           ),

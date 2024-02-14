@@ -2,6 +2,7 @@ import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:ra7al/screens/home_screen.dart';
+import 'package:ra7al/screens/scan.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -43,7 +44,7 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
       // pageTransitionType: PageTransitionType.scale,
       splashIconSize: 500,
       duration: 3000,
-      nextScreen: HomeScreen(),
+      nextScreen:HomeScreen(),
     );
 
   }

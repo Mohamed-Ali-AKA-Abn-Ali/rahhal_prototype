@@ -1,48 +1,55 @@
 import 'package:flutter/material.dart';
+import 'package:ra7al/screens/home_view.dart';
+import 'package:ra7al/screens/scan.dart';
 import 'package:ra7al/widgets/CardList.dart';
 
 import '../widgets/Card.dart';
 
-class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
+class HomeScreen extends StatefulWidget {
+
+  HomeScreen({super.key});
+
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  final ListOfWidgetsScreens=[
+    HomeView(),
+    Scanner(),
+  ];
+  int selectedIndex=0;
+  void onItemTapped(int index){
+    setState(() {
+      selectedIndex= index;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color.fromRGBO(40, 40, 40, 100),
-     appBar:AppBar(
-       centerTitle: true,
-       elevation:0,
-       backgroundColor: Colors.transparent,
-       title: Container(
-           decoration: BoxDecoration(
-             color: Colors.transparent,
+      body: Center(
+        child: ListOfWidgetsScreens[selectedIndex],
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        currentIndex: selectedIndex,
+        onTap: onItemTapped,
+        selectedItemColor: Colors.orangeAccent,
+        unselectedItemColor: Colors.white,
+        backgroundColor: Color.fromRGBO(40, 40, 40, 100),
+        items: [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: 'Home',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.qr_code_2_outlined),
+            label: 'Scan',
+          ),
+        ],
+      ),
 
-           ),
-           child:Row(
-             mainAxisAlignment: MainAxisAlignment.center,
-             children: [
-               Image.asset('assets/images/horas.png',width: 40,height: 40,),
-               Text('R A H H A L',
-               style: TextStyle(
-                   fontSize: 40,
-                 fontFamily:'raleway',
-                 color: Colors.white,
-
-               ),),
-             ],
-           ),
-       // width: 80,
-       // height: 80,
-       ),
-
-     ) ,
-      body:CardList(),
-
-
-
-
-      
     );
   }
 }
